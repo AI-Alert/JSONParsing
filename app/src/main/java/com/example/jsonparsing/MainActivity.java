@@ -108,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
                     modelClass.setTitle(jsonObject1.getString("title"));
                     modelClass.setData(jsonObject1.getString("data"));
                     modelClass.setImg(jsonObject1.getString("image"));
+                    modelClass.setContent(jsonObject1.getString("content"));
+                    modelClass.setId(jsonObject1.getString("id"));
 
 
                     postList.add(modelClass);

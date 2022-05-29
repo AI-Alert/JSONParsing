@@ -1,6 +1,9 @@
 package com.example.jsonparsing;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +23,9 @@ public class Adapter  {
 
         private Context mContext;
         private List<PostModelClass> mData;
+        String content;
+        String title;
+        String data;
 
         public Adaptery(Context mContext, List<PostModelClass> mData) {
             this.mContext = mContext;
@@ -44,6 +50,32 @@ public class Adapter  {
             holder.title.setText(mData.get(position).getTitle());
             holder.excerpt.setText(mData.get(position).getExcerpt());
             holder.data.setText(mData.get(position).getData());
+           // holder.content.setText(mData.get(position).getContent());
+            title = mData.get(position).getTitle();
+            content = mData.get(position).getContent();
+            data = mData.get(position).getData();
+            Log.e("CONTENT", content.toString());
+            Log.e("TITLE", title.toString());
+            Log.e("DATA", data.toString());
+            Glide.with(mContext)
+                    .load(mData.get(position).getImg())
+                    .into(holder.image);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    Intent i = new Intent(mContext, PostDetailActivity.class);
+                    i.putExtra("content", content);
+                    i.putExtra("title", title);
+                    i.putExtra("data", data);
+
+
+                    mContext.startActivity(i);
+                }
+            });
+
+
 
             Glide.with(mContext)
                     .load(mData.get(position).getImg())
@@ -63,6 +95,7 @@ public class Adapter  {
             TextView data;
             TextView excerpt;
             ImageView image;
+            //TextView content;
 
 
             public MyViewHolder(@NonNull View itemView) {
@@ -72,12 +105,8 @@ public class Adapter  {
                 data =itemView.findViewById(R.id.id_published);
                 excerpt = itemView.findViewById(R.id.id_excerpt);
                 image = itemView.findViewById(R.id.id_image);
+                //content = itemView.findViewById(R.id.content);
 
-
-//                title.findViewById(R.id.id_title);
-//                data.findViewById(R.id.id_published);
-//                excerpt.findViewById(R.id.id_excerpt);
-//                image.findViewById(R.id.id_image);
             }
         }
 
