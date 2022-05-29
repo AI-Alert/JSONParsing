@@ -33,6 +33,8 @@ public class Adapter  {
             LayoutInflater inflater = LayoutInflater.from(mContext);
             view = inflater.inflate(R.layout.post_item, parent, false);
 
+
+
             return new MyViewHolder(view);
         }
 
@@ -66,10 +68,16 @@ public class Adapter  {
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
 
-                title.findViewById(R.id.id_title);
-                data.findViewById(R.id.id_published);
-                excerpt.findViewById(R.id.id_excerpt);
-                image.findViewById(R.id.id_image);
+                title = itemView.findViewById(R.id.id_title);
+                data =itemView.findViewById(R.id.id_published);
+                excerpt = itemView.findViewById(R.id.id_excerpt);
+                image = itemView.findViewById(R.id.id_image);
+
+
+//                title.findViewById(R.id.id_title);
+//                data.findViewById(R.id.id_published);
+//                excerpt.findViewById(R.id.id_excerpt);
+//                image.findViewById(R.id.id_image);
             }
         }
 
