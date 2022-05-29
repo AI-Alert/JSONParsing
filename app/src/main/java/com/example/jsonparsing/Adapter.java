@@ -46,11 +46,13 @@ public class Adapter  {
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+            PostModelClass ins = mData.get(position);
+
 
             holder.title.setText(mData.get(position).getTitle());
             holder.excerpt.setText(mData.get(position).getExcerpt());
             holder.data.setText(mData.get(position).getData());
-           // holder.content.setText(mData.get(position).getContent());
+            // holder.content.setText(mData.get(position).getContent());
             title = mData.get(position).getTitle();
             content = mData.get(position).getContent();
             data = mData.get(position).getData();
@@ -61,12 +63,10 @@ public class Adapter  {
                 @Override
                 public void onClick(View v) {
 
-
                     Intent i = new Intent(mContext, PostDetailActivity.class);
-                    i.putExtra("content", content);
-                    i.putExtra("title", title);
-                    i.putExtra("data", data);
-
+                    i.putExtra("content", ins.getContent());
+                    i.putExtra("title", ins.getTitle());
+                    i.putExtra("data", ins.getData());
 
                     mContext.startActivity(i);
                 }

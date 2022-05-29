@@ -22,7 +22,6 @@ public class PostDetailActivity extends AppCompatActivity {
     TextView title1;
     String data;
     TextView data1;
-    String image;
     ImageView image1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +47,13 @@ public class PostDetailActivity extends AppCompatActivity {
             data1.setText(data);
         }
 
-//        Button btn =(Button) findViewById(R.id.backbtn);
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                Intent i = new Intent(PostDetailActivity.this, MainActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        Button btn =(Button) findViewById(R.id.backbtn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(PostDetailActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
