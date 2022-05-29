@@ -54,12 +54,9 @@ public class Adapter  {
             title = mData.get(position).getTitle();
             content = mData.get(position).getContent();
             data = mData.get(position).getData();
-            Log.e("CONTENT", content.toString());
-            Log.e("TITLE", title.toString());
-            Log.e("DATA", data.toString());
-            Glide.with(mContext)
-                    .load(mData.get(position).getImg())
-                    .into(holder.image);
+//            Log.e("CONTENT", content.toString());
+//            Log.e("TITLE", title.toString());
+//            Log.e("DATA", data.toString());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -95,7 +92,7 @@ public class Adapter  {
             TextView data;
             TextView excerpt;
             ImageView image;
-            //TextView content;
+            TextView content;
 
 
             public MyViewHolder(@NonNull View itemView) {
@@ -105,7 +102,8 @@ public class Adapter  {
                 data =itemView.findViewById(R.id.id_published);
                 excerpt = itemView.findViewById(R.id.id_excerpt);
                 image = itemView.findViewById(R.id.id_image);
-                //content = itemView.findViewById(R.id.content);
+                content = itemView.findViewById(R.id.content);
+                image = itemView.findViewById(R.id.id_image);
 
             }
         }
