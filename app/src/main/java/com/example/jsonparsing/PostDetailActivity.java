@@ -2,18 +2,12 @@ package com.example.jsonparsing;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
-import java.util.List;
 
 public class PostDetailActivity extends AppCompatActivity {
     String content;
@@ -26,13 +20,13 @@ public class PostDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_post_detail);
+
+
         cont = findViewById(R.id.content);
         title1 = findViewById(R.id.title);
         data1 = findViewById(R.id.data);
-        image1 = findViewById(R.id.id_image);
+        image1 = findViewById(R.id.id_image_post);
 
 
         Intent iin = getIntent();
@@ -47,10 +41,18 @@ public class PostDetailActivity extends AppCompatActivity {
             data1.setText(data);
         }
 
-        Button btn =(Button) findViewById(R.id.backbtn);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button bacbBtn =(Button) findViewById(R.id.backpostbtn);
+        bacbBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(PostDetailActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Button btnUsers =(Button) findViewById(R.id.userbtn);
+        btnUsers.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(PostDetailActivity.this, UserActivity.class);
                 startActivity(i);
             }
         });
